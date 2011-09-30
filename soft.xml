@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<softs>
+	<soft name="">
+	<!--
+	contient toutes les instruction pour l'install d'un soft
+	-->
+		<raw id="" ask="" error="" excpect="" default="" value="" out=""/>
+		<!--
+		pour les raw_input
+		id : le nom de la variable dans le dico install_var
+		ask : question a afficher
+		error : message ernvoyer si incorrect, laisser vide si inutile
+		excpect : expression regulier, retourne error si trouve un match, laisser vide si inutile
+		default : valeur par default si validatio vide, laisser vide pour que error soit renvoyer si validation vide
+		value : valeur de reponse, skip le raw_input si remplis
+		-->
+		<apt out="">
+			<apt_soft name=""/>
+		</apt>
+		<!--
+		execute une commande apt-get install -y apt_soft[name]...
+		entrez un noeud apt_soft avec l'attribut name contenant le nom du soft a installer
+		-->
+		<apt_raw out="" yes='' no='' default="">
+			<apt_soft name="" id="" ask="" value=""/>
+		</apt_raw>
+		<!--
+		execute une commande apt-get install -y apt_soft[name]...
+		en demandant confirmation pour chaque apt-soft
+		yes : valeur de validation
+		no : valeur de non
+		dafault : valeur retourné par defaut
+		
+		id : le nom de la variable dans le dico install_var
+		ask : question a afficher
+		value : valeur de reponse, skip le raw_input si remplis
+		entrez un noeud apt_soft avec l'attribut name contenant le nom du soft a installer
+		-->
+		<replace path="">
+			<r old="" new=""/>
+		</replace>
+		<!--
+		execute un string.replace(r[old],r[new]) sur toutes les lignes du fichiers avec tout les noeuds r 
+		-->
+		<dir path=""/>
+		<!--
+		creer un dossier avec la valeur de path
+		-->
+		<file path="" mode="" content="">contenu</file>
+		<!--
+		creer un fichier avec la valeur de path
+		le remplis avec le contenu entre balise
+		mode : flag d'ouverture de fichier a,r,w...
+		-->
+		<cmd out="">commande shell</cmd>
+		<!--
+		execute la commande shell entre les balise
+		out : 0|1 redirection de la sortie. 1 si vide, redirige ma sortie
+		-->
+		<rm path="" type=""/>
+		<!--
+		retire sur le system de fichier
+		path : chemin de l'element a retirer'
+		type : file|dir fichier ou repertoire, fichier si vide
+ 		-->
+		<cp from="" to="" r="" type=""/>
+		<!--
+		copy un fichier ou un dossier 
+		from : chemin de depart
+		to : chemin d'arriver
+		r : 0|1 recursif si dossier (1 par defaut)
+ 		-->
+		<msg>votre message</msg>
+		<!--
+		print le contenu entre les balise
+		-->
+	</soft>
+</softs>
