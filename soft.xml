@@ -40,7 +40,9 @@
 			<r old="" new=""/>
 		</replace>
 		<!--
-		execute un string.replace(r[old],r[new]) sur toutes les lignes du fichiers avec tout les noeuds r 
+		execute un string.replace(r[old],r[new]) sur toutes les lignes du fichiers avec tout les noeuds r
+		old : chaine encoder en base64
+		new : chaine encoder en base64
 		-->
 		<dir path=""/>
 		<!--
@@ -51,11 +53,13 @@
 		creer un fichier avec la valeur de path
 		le remplis avec le contenu entre balise
 		mode : flag d'ouverture de fichier a,r,w...
+		contenu : chaine encodée en base64
 		-->
 		<cmd out="">commande shell</cmd>
 		<!--
 		execute la commande shell entre les balise
 		out : 0|1 redirection de la sortie. 1 si vide, redirige ma sortie
+		commande shell : chaine encodée en base64
 		-->
 		<rm path="" type=""/>
 		<!--
@@ -73,6 +77,7 @@
 		<msg>votre message</msg>
 		<!--
 		print le contenu entre les balise
+		votre message  : chaine encodée en base64
 		-->
 	</soft>
 </softs>
