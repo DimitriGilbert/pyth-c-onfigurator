@@ -303,6 +303,8 @@ class soft_installer():
 				break:
 			l_f_size+=len(b)
 			f.write(b)
+		f.close()
+		return True
 	
 	def exec_node(self,node):
 		tag=node.tagName
