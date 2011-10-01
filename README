@@ -1,0 +1,32 @@
+pyth(c)onfigurator est un petit logiciel qui permet l'installtion de logiciels tiers et leurs configurations à partir d'un fichier XML de description
+
+Pour le faire marcher il vous faudra donc un fichier xml qui decris les actions a faire.
+le fichier simple_lamp.xml dans le logiciel est un xml de demonstration qui installe LAMP (linux apache mysql php).
+
+QUICK START
+
+Executez le script en mode administrateur :
+	sudo python pyth.c.onfigurator 
+
+Le script lance une mise a jour du systeme,une fois terminée vous aurez le message suivant : 
+	votre système est a jour
+
+vous pouvez des maintenant lancer des commande du logiciel
+Pour charger le fichier simple_lamp.xml executer les commandes suivantes :
+	load chemin/du/fichier/simple_lamp.xml
+	run
+
+certaine des commande sont accessible manuelement, par exemple pour copier un fichier:
+	cp from="chemin/du/fichier/a/copier" to="chemin/de/destination" type="file"
+
+le plus gros du travail restant a faire ici ^^
+de nouvelle commande seront aussi rajoutées au fur et a mesure suivant les besoins
+
+Description des noeud du XML :
+se reporter au fichier soft.xml
+
+/!\ certaine chaine de caractere sont encodée en base64 /!\
+
+Construction d'un XML :
+entrez les noeud les uns à la suite des autres, sans indentation
+les actions seront effectuée dans le sens du flux.

@@ -207,6 +207,20 @@ class soft_installer():
 			self.logerror('la commande apt suivante a echouée :\n'+str(sh_d))
 			self.e+=1
 			return False
+
+	def if_raw(self,node):
+		if(node.getAttribute('value')==""):
+			cmds=node.childNodes
+			
+			if(raw_input(node.getAttribute('ask'))==node.getAttribute('expect')):
+				for a in cmds:
+					self.exec_node(a)
+		else:
+			self.verbose('if skip : '+node.getAttribute('ask')+'\n')
+			if(node.getAttribute('value')=node.getAttribute('expect')):
+				for a in cmds:
+					self.exec_node(a)
+		return True
 	
 	def mdir(self,node):
 		p=self.parse_var(node.getAttribute('path'))
@@ -221,7 +235,9 @@ class soft_installer():
 		
 		f=open(p,mod)
 		if(node.getAttribute('content')!=""):
-			f.write(self.parse_var(base64.b64decode(node.firstChild.data)))
+			c=self.parse_var(base64.b64decode(node.firstChild.data))
+			self.verbose('contenu du fichier : '+c)
+			f.write(c)
 		f.close()
 		return True
 	
@@ -258,6 +274,7 @@ class soft_installer():
 			return False
 		
 	def file_replace(self,node):
+		self.verbose('modification du fichier : '+path+'\n')
 		p=self.parse_var(node.getAttribute('path'))
 		replaces=node.childNodes
 		for line in fileinput.input(p,inplace=1):
@@ -265,6 +282,27 @@ class soft_installer():
 				line=line.replace(base64.b64decode(r.getAttribute('old')),base64.b64decode(r.getAttribute('new')))
 			print line
 		return True
+		
+	def download(self,node):
+		for c in node.childNodes:
+			if(c.nodeName='url'):
+				url=base64.b64decode(c.firstChild.data)
+		f=open(node.getAttribute('file_path'),'wb')
+		self.verbose('Telechargement du fichier a l\'url suivante : '+url+'\nChemin local : '+node.getAttribute('file_path')+'\n')
+		req=urllib2.urlopen(url)
+		f_info=req.info()
+		f_name=node.getAttribute('name')
+		f_size=float(f_infon.getheaders("Content-lenght")[0])
+		self.printlog("Telechargement de %s : %s Ko" % (f_name, f_size/1024))
+		l_f_size=0
+		block=8192
+		start=time.time()
+		while True:
+			b=req.read(block)
+			if(not b):
+				break:
+			l_f_size+=len(b)
+			f.write(b)
 	
 	def exec_node(self,node):
 		tag=node.tagName

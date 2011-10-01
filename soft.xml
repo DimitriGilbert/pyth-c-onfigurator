@@ -14,6 +14,24 @@
 		default : valeur par default si validatio vide, laisser vide pour que error soit renvoyer si validation vide
 		value : valeur de reponse, skip le raw_input si remplis
 		-->
+		<if ask="" excpect="" value="">
+		liste de noeuds
+		</if>
+		<!--
+		pour les raw_inputs le dico install_var
+		ask : question a afficher
+		excpect : expression regulier, retourne error si trouve un match, laisser vide si inutile
+		value : valeur de reponse, skip le raw_input si remplis
+		liste de noeud : commande pour pyth(c)onfigurator
+		-->
+		<download>
+			<url>your url</url>
+		</download>
+		<!--
+		telecharge un fichier depuis internet a l'url 
+		file_path : chemin local du fichier
+		your url : chaine de caractere en base64
+		-->
 		<apt out="">
 			<apt_soft name=""/>
 		</apt>
