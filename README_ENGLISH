@@ -1,0 +1,32 @@
+pyth(c)onfigurator is a small soft wich allow you to install and configure other soft based on a XML description file
+
+at the moment the project is only in french, cause it's easier for me while developping it, however if you want a traduction of it (or at least the kitchen :P) just ask me and i'll be pleased to provide it to you 
+
+QUICK START :
+
+Execute the script with root rights :
+	sudo python pyth.c.onfigurator 
+	
+the script update your system first and when you get the following message :
+	votre système est a jour
+you're good to run internal command.
+to load an XML file (e.g simple_lamp.xml, that i provide) run the following commands
+	load /path/to/simple_lamp.xml
+	run
+	
+Few commands are already accessible manually, copy a file for example :
+	cp from="/path/to/the/file" to="/path/to/destination" type="file"
+	
+most of the work must be done over here ^^
+
+new XML commands will be added as i need them for my work 
+
+xml tree description :
+report to soft.xml file
+
+/!\ be careful, some strings are base64 encoded !! /!\
+
+to build an xml file, you can use the provided kitchen (written in javascript an html), 
+it's still under developpement (and in french....^^) but it should provide usable result.
+
+Enjoy !!

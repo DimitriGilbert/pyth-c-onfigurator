@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="kitchen.css" type="text/css" media="all" />
+		<title>pyth(c)onfigurator kitchen</title>
+	</head>
+	<body>
+		<div id="site">
+			<div id="branding">
+				<h1 id="site_title">Bienvenue dans pyth(c)onfigurator kitchen</h1>
+				<div id="site_description">
+					L'outil de création de script pour pyth(c)onfigurator !
+				</div>
+			</div>
+			<div id="access">
+				<div class="access_item" id="access_new_script" onclick="new_script()">
+					Créer un nouveau script.
+				</div>
+				<div class="access_item" id="access_load_script" onclick="load_script()">
+					Charger un script existant.
+				</div>
+				<div class="float_clear10"></div>
+			</div>
+			<div id="main">
+				<div id="side">
+					<div class="new_what">
+						<h2>Nouveau noeud</h2>
+						<div id="new_soft" class="new_what_item" onclick="kitchen.new_w(this.id)" style="display:none;">soft</div>
+						<div id="new_raw" class="new_what_item" onclick="kitchen.new_w(this.id)">raw_input</div>
+						<div id="new_download" class="new_what_item" onclick="kitchen.new_w(this.id)"">téléchargement</div>
+						<div id="new_apt" class="new_what_item" onclick="kitchen.new_w(this.id)">apt-get install</div>
+						<div id="new_apt_raw" class="new_what_item" onclick="kitchen.new_w(this.id)">apt_raw (demande l'installation d'un programme)</div>
+						<div id="new_replace" class="new_what_item" onclick="kitchen.new_w(this.id)">remplacement</div>
+						<div id="new_dir" class="new_what_item" onclick="kitchen.new_w(this.id)">création de dossier</div>
+						<div id="new_file" class="new_what_item" onclick="kitchen.new_w(this.id)">création de fichier</div>
+						<div id="new_cmd" class="new_what_item" onclick="kitchen.new_w(this.id)">commande shell</div>
+						<div id="new_rm" class="new_what_item" onclick="kitchen.new_w(this.id)">suppression</div>
+						<div id="new_cp" class="new_what_item" onclick="kitchen.new_w(this.id)">copie</div>
+						<div id="new_msg" class="new_what_item" onclick="kitchen.new_w(this.id)">message</div>
+						<div id="create_xml" class="new_what_item" onclick="kitchen.create_xml()">CREER LE SCRIPT</div>
+						<div class="float_clear"></div>
+					</div>
+				</div>
+				<div id="content">
+					<div id="content_new_script" class="content_page" style="display:block">
+<!--						<div id="new_script_name"><input type="text" value="nom du script" /></div>-->
+						<div id="new_script_detail"></div>						
+					</div>
+					<div id="content_load_script" class="content_page">
+					</div>
+					<div id="content_out" class="content_page">
+						<textarea id="xml_out_area"></textarea>;
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="jsinterface.js"></script>
+		<script type="text/javascript" src="kitchen.js"></script>
+	</body>
+</html>

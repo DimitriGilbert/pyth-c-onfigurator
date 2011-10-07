@@ -142,15 +142,15 @@ class soft_installer():
 		self.verbose(str(self.error))
 		
 	def raw(self,node):
-		if(node.getAttribute('value')==""):
+		if(self.parse_var(node.getAttribute('value'))==""):
 			msg=self.parse_var(node.getAttribute('ask'))
 			var_name=self.parse_var(node.getAttribute('id'))
 			raw=raw_input(msg+'\n')
-			if(raw=="" and node.getAttribute('default')!=""):
-				self.install_var[var_name]=node.getAttribute('default')
-				self.verbose(':@:'+var_name+':/@:='+node.getAttribute('default'))
+			if(raw=="" and self.parse_var(node.getAttribute('default'))!=""):
+				self.install_var[var_name]=self.parse_var(node.getAttribute('default'))
+				self.verbose(':@:'+var_name+':/@:='+self.parse_var(node.getAttribute('default')))
 				return True
-			elif(raw=="" and node.getAttribute('default')=="" and node.getAttribute('error')!=""):
+			elif(raw=="" and self.parse_var(node.getAttribute('default'))=="" and self.parse_var(node.getAttribute('error'))!=""):
 				print node.getAttribute('error')
 				self.verbose('valeur de :@:'+var_name+':/@: incorecte')
 				return self.exec_node(node)
@@ -168,7 +168,7 @@ class soft_installer():
 		self.verbose('installation des paquet suivant : \n')
 		for a in apts:
 			sh_d.append(self.parse_var(a.getAttribute('name')))
-			self.verbose(a.getAttribute('name')+' ')
+			self.verbose(self.parse_var(a.getAttribute('name'))+' ')
 		
 		if(node.getAttribute('out')=='0'):
 			self.logexecuted(subprocess.call(sh_d))
@@ -188,9 +188,9 @@ class soft_installer():
 		sh_d=['apt-get','-y','install']
 		self.verbose('choix pour installation des paquets suivant : \n')
 		for a in apts:
-			if(raw_input(a.getAttribute('ask'))!=a.getAttribute('no')):
+			if(raw_input(self.parse_var(a.getAttribute('ask')))!=self.parse_var(a.getAttribute('no'))):
 				sh_d.append(self.parse_var(a.getAttribute('name')))
-				self.verbose(a.getAttribute('name')+' ')
+				self.verbose(self.parse_var(a.getAttribute('name'))+' ')
 				self.install_var[a.getAttribute('id')]=True
 			else:
 				self.install_var[a.getAttribute('id')]=False
@@ -208,18 +208,90 @@ class soft_installer():
 			self.e+=1
 			return False
 
-	def if_raw(self,node):
-		if(node.getAttribute('value')==""):
+	def loop(self,node):
+		cn=node.childNodes
+		if(cn[0].nodeName=="while"):
+			return self.while_raw(cn[0])
+		else:
+			if(len(cn)!=1):
+				rawin=''
+				rawin2=''
+				for c in cn:
+					if(c.nodeName=='if' or c.nodeName=='elseif'):
+						rawin2=self.if_raw(c,rawin)
+						if(rawin2==True):
+							return True
+						elif(rawin2==rawin):
+							rawin=rawin2
+							rawin2=''
+					elif(c.nodeName=='else'):
+						for cmds in c:
+							self.exec_node(cmds)
+						return True
+					
+			else:
+				return self.if_raw(cn[0])
+						
+	
+	def if_raw(self,node,rawin=''):
+		#si value n'est pas vide'
+		if(self.parse_var(node.getAttribute('value'))==""):
 			cmds=node.childNodes
-			
-			if(raw_input(node.getAttribute('ask'))==node.getAttribute('expect')):
-				for a in cmds:
-					self.exec_node(a)
+			#test si rawin existe, sinon demande ask
+			if(rawin==''):
+				rawin=raw_input(self.parse_var(node.getAttribute('ask')))
+			#si egalité
+			if(self.parse_var(node.getAttribute('type'))=='' or self.parse_var(node.getAttribute('type'))=='='):
+				if(rawin==self.parse_var(node.getAttribute('expect'))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si inferiorité
+			elif(node.getAttribute('type')=='<'):
+				if(float(rawin)<float(self.parse_var(node.getAttribute('expect')))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si inferiorité ou egalité
+			elif(node.getAttribute('type')=='<='):
+				if(float(rawin)<=float(self.parse_var(node.getAttribute('expect')))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si superiorité
+			elif(node.getAttribute('type')=='>'):
+				if(float(rawin)>float(self.parse_var(node.getAttribute('expect')))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si superiorité ou egalité
+			elif(node.getAttribute('type')=='>='):
+				if(float(rawin)>=float(self.parse_var(node.getAttribute('expect')))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si different de
+			elif(node.getAttribute('type')=='!='):
+				if(rawin!=self.parse_var(node.getAttribute('expect'))):
+					for a in cmds:
+						self.exec_node(a)
+				else:
+					return rawin
+			#si comparaison indefinie
+			else:
+				return False
+		
 		else:
 			self.verbose('if skip : '+node.getAttribute('ask')+'\n')
-			if(node.getAttribute('value')=node.getAttribute('expect')):
+			if(self.parse_var(node.getAttribute('value'))==self.parse_var(node.getAttribute('expect'))):
 				for a in cmds:
 					self.exec_node(a)
+		
 		return True
 	
 	def mdir(self,node):
@@ -234,7 +306,7 @@ class soft_installer():
 		mod=self.parse_var(node.getAttribute('mode'))
 		
 		f=open(p,mod)
-		if(node.getAttribute('content')!=""):
+		if(self.parse_var(node.getAttribute('content'))!=""):
 			c=self.parse_var(base64.b64decode(node.firstChild.data))
 			self.verbose('contenu du fichier : '+c)
 			f.write(c)
@@ -285,7 +357,7 @@ class soft_installer():
 		
 	def download(self,node):
 		for c in node.childNodes:
-			if(c.nodeName='url'):
+			if(c.nodeName=='url'):
 				url=base64.b64decode(c.firstChild.data)
 		f=open(node.getAttribute('file_path'),'wb')
 		self.verbose('Telechargement du fichier a l\'url suivante : '+url+'\nChemin local : '+node.getAttribute('file_path')+'\n')
@@ -300,7 +372,7 @@ class soft_installer():
 		while True:
 			b=req.read(block)
 			if(not b):
-				break:
+				break
 			l_f_size+=len(b)
 			f.write(b)
 		f.close()

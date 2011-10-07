@@ -30,3 +30,6 @@ se reporter au fichier soft.xml
 Construction d'un XML :
 entrez les noeud les uns à la suite des autres, sans indentation
 les actions seront effectuée dans le sens du flux.
+un script de creation est disponible (kitchen) pour simplifier la création de script d'instalation, il est encore en cour de developpement mais devrais resortir des resultat utilisable des maintenant
+
+Enjoy !!

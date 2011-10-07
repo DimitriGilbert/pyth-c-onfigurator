@@ -14,17 +14,40 @@
 		default : valeur par default si validatio vide, laisser vide pour que error soit renvoyer si validation vide
 		value : valeur de reponse, skip le raw_input si remplis
 		-->
-		<if ask="" excpect="" value="">
-		liste de noeuds
-		</if>
+		<loop>
+			<if ask="" excpect="" type="" value="">
+			liste de noeuds
+			</if>
+			<elseif excpect="" type="">
+			liste de noeud
+			</elsif>
+			<else>
+			liste de noeud
+			</else>
+			<while ask="" start="" type="">
+			liste de noeuds
+			</while>
+		</loop>
 		<!--
-		pour les raw_inputs le dico install_var
-		ask : question a afficher
-		excpect : expression regulier, retourne error si trouve un match, laisser vide si inutile
-		value : valeur de reponse, skip le raw_input si remplis
+		if:
+			ask : question a afficher
+			excpect : valeur de reference
+			type : = si vide, < , >, <=, >=, != definie le type de comparaison
+			value : valeur de reponse, skip le raw_input si remplis
+		elseif:
+			si la premiere condition n'est pas respecter, check les conditions des elseif s'arrete quand une condition convient
+		else:
+			si aucune condition if ou elseif n'est remplies
+			
+		while:
+			ask : question a afficher
+			start : valeur de depart de la boucle, 0 si vide
+			type : = si vide, < , >, <=, >=, != definie le type de comparaison
+			boucle sur la liste de noeud entre start et la reponse a ask
+		
 		liste de noeud : commande pour pyth(c)onfigurator
 		-->
-		<download>
+		<download file_path="">
 			<url>your url</url>
 		</download>
 		<!--
