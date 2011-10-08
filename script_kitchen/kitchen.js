@@ -384,40 +384,40 @@ var Kitchen=function()
 		switch(what)
 		{		
 			case 'new_raw':
-				this.new_raw();
+				t.new_raw();
 				break;
 			case 'new_download':
-				this.new_download();
+				t.new_download();
 				break;
 			case 'new_apt':
-				this.new_apt();
+				t.new_apt();
 				break;
 			case 'new_apt_raw':
-				this.new_apt_raw();
+				t.new_apt_raw();
 				break;
 			case 'new_replace':
-				this.new_replace();
+				t.new_replace();
 				break;
 			case 'new_dir':
-				this.new_dir();
+				t.new_dir();
 				break;
 			case 'new_file':
-				this.new_file();
+				t.new_file();
 				break;
 			case 'new_cmd':
-				this.new_cmd();
+				t.new_cmd();
 				break;
 			case 'new_rm':
-				this.new_rm();
+				t.new_rm();
 				break;
 			case 'new_cp':
-				this.new_cp();
+				t.new_cp();
 				break;
 			case 'new_msg':
-				this.new_msg();
+				t.new_msg();
 				break;
 			case 'new_soft':
-				this.new_raw();
+				t.new_raw();
 				break;
 		}
 	}
@@ -480,7 +480,7 @@ var Kitchen=function()
 	this.create_raw=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var raw=t.k_xml.createElement('raw');
 		raw.setAttribute('id',docelid(id+'_id').value);
@@ -496,7 +496,7 @@ var Kitchen=function()
 	this.create_download=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var dl=t.k_xml.createElement('download');
 		dl.setAttribute('fil_path',docelid(id+'_file_path').value);
@@ -507,7 +507,7 @@ var Kitchen=function()
 	this.create_apt=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var a=t.k_xml.createElement('apt');
 		var x=0;
@@ -537,7 +537,7 @@ var Kitchen=function()
 	this.create_apt_raw=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		var a=t.k_xml.createElement('apt');
 		var x=0;
 		var nb=docelid(id+'_nb_soft').value;
@@ -570,7 +570,7 @@ var Kitchen=function()
 	this.create_replace=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		var a=t.k_xml.createElement('replace');
 		var x=0;
 		var nb=docelid(id+'_nb_replace').value;
@@ -590,7 +590,7 @@ var Kitchen=function()
 	this.create_dir=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var dir=t.k_xml.createElement('dir');
 		dir.setAttribute('path',docelid(id+'_path').value);
@@ -600,7 +600,7 @@ var Kitchen=function()
 	this.create_file=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var f=t.k_xml.createElement('dir');
 		f.setAttribute('path',docelid(id+'_path').value);
@@ -621,7 +621,7 @@ var Kitchen=function()
 	this.create_cmd=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		var c=t.k_xml.createElement('cmd');
 		var o=docelid(id+'_out').value;
 		if(o=='')
@@ -639,7 +639,7 @@ var Kitchen=function()
 	this.create_rm=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		var r=t.k_xml.createElement('rm');
 		r.setAttribute('path',docelid(id+'_path').value);
 		r.setAttribute('type',docelid(id+'_type').value);
@@ -649,7 +649,7 @@ var Kitchen=function()
 	this.create_cp=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		var cp=t.k_xml.createElement('rm');
 		cp.setAttribute('from',docelid(id+'_from').value);
 		cp.setAttribute('to',docelid(id+'_to').value);
@@ -669,7 +669,7 @@ var Kitchen=function()
 	this.create_msg=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 		
 		var m=t.k_xml.createElement('msg');
 		m.textContent=Base64.encode(docelid(id+'_content').value)
@@ -679,7 +679,7 @@ var Kitchen=function()
 	this.create_soft=function(div)
 	{
 		var t=this;
-		var id=this.get_block_id(div.id);
+		var id=t.get_block_id(div.id);
 	}
 	
 	
@@ -697,40 +697,40 @@ var Kitchen=function()
 			switch(nodes[x].classList[1])
 			{		
 				case 'raw':
-					xml.appendChild(this.create_raw(nodes[x]));
+					xml.appendChild(t.create_raw(nodes[x]));
 					break;
 				case 'download':
-					xml.appendChild(this.create_download(nodes[x]));
+					xml.appendChild(t.create_download(nodes[x]));
 					break;
 				case 'apt':
-					xml.appendChild(this.create_apt(nodes[x]));
+					xml.appendChild(t.create_apt(nodes[x]));
 					break;
 				case 'apt_raw':
-					xml.appendChild(this.create_apt_raw(nodes[x]));
+					xml.appendChild(t.create_apt_raw(nodes[x]));
 					break;
 				case 'replace':
-					xml.appendChild(this.create_replace(nodes[x]));
+					xml.appendChild(t.create_replace(nodes[x]));
 					break;
 				case 'dir':
-					xml.appendChild(this.create_dir(nodes[x]));
+					xml.appendChild(t.create_dir(nodes[x]));
 					break;
 				case 'file':
-					xml.appendChild(this.create_file(nodes[x]));
+					xml.appendChild(t.create_file(nodes[x]));
 					break;
 				case 'cmd':
-					xml.appendChild(this.create_cmd(nodes[x]));
+					xml.appendChild(t.create_cmd(nodes[x]));
 					break;
 				case 'rm':
-					xml.appendChild(this.create_rm(nodes[x]));
+					xml.appendChild(t.create_rm(nodes[x]));
 					break;
 				case 'cp':
-					xml.appendChild(this.create_cp(nodes[x]));
+					xml.appendChild(t.create_cp(nodes[x]));
 					break;
 				case 'msg':
-					xml.appendChild(this.create_msg(nodes[x]));
+					xml.appendChild(t.create_msg(nodes[x]));
 					break;
 				case 'soft':
-					xml.appendChild(this.create_raw(nodes[x]));
+					xml.appendChild(t.create_raw(nodes[x]));
 					break;
 			}
 			x++;
@@ -739,6 +739,82 @@ var Kitchen=function()
 		docelid('content_new_script').style.display='none';
 		docelid('content_load_script').style.display='none';
 		docelid('content_out').style.display='block';		
+	}
+	
+	this.load_xml=function(xml_str)
+	{
+		var t=this;
+		if (window.DOMParser)
+		{
+			t.k_xml=new DOMParser().parseFromString(xml_str,"text/xml");
+		}
+		else
+		{
+			t.k_xml=new ActiveXObject("Microsoft.XMLDOM");
+			t.k_xml.async="false";
+			t.k_xml.loadXML(xml_str);
+		}
+		
+		var nodes=t.k_xml.documentElement.childNodes;
+		var x=0;
+		var y=nodes.length;
+		var id='';
+		while(x<y)
+		{
+			switch(nodes[x].nodeName)
+			{		
+				case 'raw':
+					n=t.new_raw();
+					id=t.get_block_id(n.id);
+					break;
+				case 'download':
+					n=t.new_download();
+					id=t.get_block_id(n.id);
+					break;
+				case 'apt':
+					n=t.new_apt();
+					id=t.get_block_id(n.id);
+					break;
+				case 'apt_raw':
+					n=t.new_apt_raw();
+					id=t.get_block_id(n.id);
+					break;
+				case 'replace':
+					n=t.new_replace();
+					id=t.get_block_id(n.id);
+					break;
+				case 'dir':
+					n=t.new_dir();
+					id=t.get_block_id(n.id);
+					break;
+				case 'file':
+					n=t.new_file();
+					id=t.get_block_id(n.id);
+					break;
+				case 'cmd':
+					n=t.new_cmd();
+					id=t.get_block_id(n.id);
+					break;
+				case 'rm':
+					n=t.new_rm();
+					id=t.get_block_id(n.id);
+					break;
+				case 'cp':
+					n=t.new_cp();
+					id=t.get_block_id(n.id);
+					break;
+				case 'msg':
+					n=t.new_msg();
+					id=t.get_block_id(n.id);
+					break;
+				case 'soft':
+					n=t.new_soft();
+					id=t.get_block_id(n.id);
+					break;
+			}
+			x++;
+		}
+		
 	}
 }
 

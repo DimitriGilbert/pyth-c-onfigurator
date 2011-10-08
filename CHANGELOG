@@ -8,3 +8,7 @@ CHANGELOG :
 	added CHANGELOG file
 	reorganize folder
 	added kitchen (script creator in HTML and JavaScript)
+	
+0.2 :
+	all commands available except for 'if' and 'apt_raw'
+	added load_xml method to kitchen to build the form describing an xml file

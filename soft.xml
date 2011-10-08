@@ -29,6 +29,8 @@
 			</while>
 		</loop>
 		<!--
+		Pour le moment seul le noeud if est codé, il faut le mettre en dehors du noeud loop (la sctructure du xml va plus vite que le code pour le lire :P )
+		
 		if:
 			ask : question a afficher
 			excpect : valeur de reference

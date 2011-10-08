@@ -1,94 +1,94 @@
+Atteint http://ftp.oleane.net lucid Release.gpg
+Atteint http://ftp.oleane.net/ubuntu/ lucid/main Translation-fr
+Atteint http://ftp.oleane.net/ubuntu/ lucid/restricted Translation-fr
+Atteint http://archive.canonical.com lucid Release.gpg
+Ign http://archive.canonical.com/ubuntu/ lucid/partner Translation-fr
+Atteint http://security.ubuntu.com lucid-security Release.gpg
+Ign http://security.ubuntu.com/ubuntu/ lucid-security/restricted Translation-fr
+Ign http://security.ubuntu.com/ubuntu/ lucid-security/main Translation-fr
 Atteint http://ppa.launchpad.net lucid Release.gpg
 Ign http://ppa.launchpad.net/bisigi/ppa/ubuntu/ lucid/main Translation-fr
 Atteint http://ppa.launchpad.net lucid Release.gpg
-Atteint http://ftp.oleane.net lucid Release.gpg
-Atteint http://ftp.oleane.net/ubuntu/ lucid/main Translation-fr
-Ign http://ppa.launchpad.net/kernel-ppa/ppa/ubuntu/ lucid/main Translation-fr
-Atteint http://ppa.launchpad.net lucid Release.gpg
-Ign http://ppa.launchpad.net/mozillateam/firefox-stable/ubuntu/ lucid/main Translation-fr
-Réception de : 1 http://ppa.launchpad.net lucid Release.gpg [316B]
-Ign http://ppa.launchpad.net/speed-dreams/ppa/ubuntu/ lucid/main Translation-fr
-Atteint http://ppa.launchpad.net lucid Release.gpg
-Ign http://ppa.launchpad.net/tualatrix/ppa/ubuntu/ lucid/main Translation-fr
-Réception de : 2 http://dl.google.com stable Release.gpg [198B]
-Atteint http://ftp.oleane.net/ubuntu/ lucid/restricted Translation-fr
 Atteint http://ftp.oleane.net/ubuntu/ lucid/universe Translation-fr
 Atteint http://ftp.oleane.net/ubuntu/ lucid/multiverse Translation-fr
-Réception de : 3 http://ftp.oleane.net lucid-updates Release.gpg [198B]
+Atteint http://ftp.oleane.net lucid-updates Release.gpg
 Ign http://ftp.oleane.net/ubuntu/ lucid-updates/main Translation-fr
 Ign http://ftp.oleane.net/ubuntu/ lucid-updates/restricted Translation-fr
 Ign http://ftp.oleane.net/ubuntu/ lucid-updates/universe Translation-fr
 Ign http://ftp.oleane.net/ubuntu/ lucid-updates/multiverse Translation-fr
-Ign http://dl.google.com/linux/talkplugin/deb/ stable/main Translation-fr
-Atteint http://ppa.launchpad.net lucid Release.gpg
-Ign http://ppa.launchpad.net/ubuntu-mozilla-daily/ppa/ubuntu/ lucid/main Translation-fr
-Atteint http://ppa.launchpad.net lucid Release.gpg
 Atteint http://ftp.oleane.net lucid-backports Release.gpg
 Ign http://ftp.oleane.net/ubuntu/ lucid-backports/restricted Translation-fr
-Atteint http://archive.canonical.com lucid Release.gpg
-Ign http://archive.canonical.com/ubuntu/ lucid/partner Translation-fr
-Réception de : 4 http://dl.google.com stable Release [1 347B]
-Ign http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu/ lucid/main Translation-fr
-Atteint http://ppa.launchpad.net lucid Release
-Atteint http://ppa.launchpad.net lucid Release
-Atteint http://ppa.launchpad.net lucid Release
-Réception de : 5 http://ppa.launchpad.net lucid Release [13,9kB]
-Atteint http://deb.opera.com stable Release.gpg
-Ign http://deb.opera.com/opera/ stable/non-free Translation-fr
-Réception de : 6 http://security.ubuntu.com lucid-security Release.gpg [198B]
-Ign http://security.ubuntu.com/ubuntu/ lucid-security/restricted Translation-fr
-Ign http://security.ubuntu.com/ubuntu/ lucid-security/main Translation-fr
+Atteint http://archive.canonical.com lucid Release
+Ign http://security.ubuntu.com/ubuntu/ lucid-security/multiverse Translation-fr
+Ign http://security.ubuntu.com/ubuntu/ lucid-security/universe Translation-fr
+Atteint http://security.ubuntu.com lucid-security Release
+Ign http://ppa.launchpad.net/kernel-ppa/ppa/ubuntu/ lucid/main Translation-fr
+Atteint http://ppa.launchpad.net lucid Release.gpg
+Ign http://ppa.launchpad.net/mozillateam/firefox-stable/ubuntu/ lucid/main Translation-fr
+Atteint http://ppa.launchpad.net lucid Release.gpg
+Ign http://ppa.launchpad.net/speed-dreams/ppa/ubuntu/ lucid/main Translation-fr
+Atteint http://ppa.launchpad.net lucid Release.gpg
+Ign http://ppa.launchpad.net/tualatrix/ppa/ubuntu/ lucid/main Translation-fr
+Réception de : 1 http://dl.google.com stable Release.gpg [198B]
 Ign http://ftp.oleane.net/ubuntu/ lucid-backports/main Translation-fr
 Ign http://ftp.oleane.net/ubuntu/ lucid-backports/multiverse Translation-fr
 Ign http://ftp.oleane.net/ubuntu/ lucid-backports/universe Translation-fr
 Atteint http://ftp.oleane.net lucid Release
-Réception de : 7 http://ftp.oleane.net lucid-updates Release [44,7kB]
-Atteint http://ppa.launchpad.net lucid Release
-Atteint http://ppa.launchpad.net lucid Release
-Réception de : 8 http://dl.google.com stable/main Packages [764B]
-Ign http://security.ubuntu.com/ubuntu/ lucid-security/multiverse Translation-fr
-Ign http://security.ubuntu.com/ubuntu/ lucid-security/universe Translation-fr
-Réception de : 9 http://security.ubuntu.com lucid-security Release [44,7kB]
-Atteint http://deb.opera.com stable Release
-Atteint http://ppa.launchpad.net lucid Release
-Atteint http://archive.canonical.com lucid Release
-Ign http://deb.opera.com stable/non-free Packages
-Atteint http://ftp.oleane.net lucid-backports Release
-Atteint http://ppa.launchpad.net lucid/main Packages
-Atteint http://ppa.launchpad.net lucid/main Packages
-Atteint http://ppa.launchpad.net lucid/main Packages
+Ign http://dl.google.com/linux/talkplugin/deb/ stable/main Translation-fr
 Atteint http://archive.canonical.com lucid/partner Packages
-Ign http://deb.opera.com stable/non-free Packages
+Atteint http://ftp.oleane.net lucid-updates Release
+Atteint http://security.ubuntu.com lucid-security/restricted Packages
+Atteint http://ppa.launchpad.net lucid Release.gpg
+Ign http://ppa.launchpad.net/ubuntu-mozilla-daily/ppa/ubuntu/ lucid/main Translation-fr
+Atteint http://ppa.launchpad.net lucid Release.gpg
+Atteint http://ftp.oleane.net lucid-backports Release
+Réception de : 2 http://dl.google.com stable Release [1 347B]
 Atteint http://ftp.oleane.net lucid/main Packages
 Atteint http://ftp.oleane.net lucid/restricted Packages
 Atteint http://ftp.oleane.net lucid/main Sources
 Atteint http://ftp.oleane.net lucid/restricted Sources
 Atteint http://ftp.oleane.net lucid/universe Packages
+Atteint http://security.ubuntu.com lucid-security/main Packages
+Atteint http://security.ubuntu.com lucid-security/multiverse Packages
+Atteint http://security.ubuntu.com lucid-security/universe Packages
+Ign http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu/ lucid/main Translation-fr
+Atteint http://ppa.launchpad.net lucid Release
+Atteint http://ppa.launchpad.net lucid Release
+Atteint http://ppa.launchpad.net lucid Release
+Atteint http://ppa.launchpad.net lucid Release
+Atteint http://ppa.launchpad.net lucid Release
 Atteint http://ftp.oleane.net lucid/universe Sources
-Réception de : 10 http://ppa.launchpad.net lucid/main Packages [14B]
-Atteint http://ppa.launchpad.net lucid/main Packages
-Atteint http://ppa.launchpad.net lucid/main Packages
-Réception de : 11 http://security.ubuntu.com lucid-security/restricted Packages [14B]
 Atteint http://ftp.oleane.net lucid/multiverse Packages
 Atteint http://ftp.oleane.net lucid/multiverse Sources
-Atteint http://deb.opera.com stable/non-free Packages
-Réception de : 12 http://ftp.oleane.net lucid-updates/main Packages [522kB]
+Réception de : 3 http://dl.google.com stable/main Packages [764B]
+Atteint http://ftp.oleane.net lucid-updates/main Packages
+Atteint http://ftp.oleane.net lucid-updates/restricted Packages
+Atteint http://ftp.oleane.net lucid-updates/main Sources
+Atteint http://ftp.oleane.net lucid-updates/restricted Sources
+Atteint http://ftp.oleane.net lucid-updates/universe Packages
+Atteint http://ppa.launchpad.net lucid Release
+Atteint http://ftp.oleane.net lucid-updates/universe Sources
+Atteint http://ftp.oleane.net lucid-updates/multiverse Packages
+Atteint http://ppa.launchpad.net lucid Release
 Atteint http://ppa.launchpad.net lucid/main Packages
-Réception de : 13 http://security.ubuntu.com lucid-security/main Packages [215kB]
-Réception de : 14 http://security.ubuntu.com lucid-security/multiverse Packages [4 432B]
-Réception de : 15 http://security.ubuntu.com lucid-security/universe Packages [88,6kB]
-Réception de : 16 http://ftp.oleane.net lucid-updates/restricted Packages [3 267B]
-Réception de : 17 http://ftp.oleane.net lucid-updates/main Sources [202kB]
-Réception de : 18 http://ftp.oleane.net lucid-updates/restricted Sources [1 443B]
-Réception de : 19 http://ftp.oleane.net lucid-updates/universe Packages [232kB]
-Réception de : 20 http://ftp.oleane.net lucid-updates/universe Sources [81,0kB]
-Réception de : 21 http://ftp.oleane.net lucid-updates/multiverse Packages [10,4kB]
-Réception de : 22 http://ftp.oleane.net lucid-updates/multiverse Sources [5 070B]
+Atteint http://deb.opera.com stable Release.gpg
+Ign http://deb.opera.com/opera/ stable/non-free Translation-fr
+Atteint http://ftp.oleane.net lucid-updates/multiverse Sources
 Atteint http://ftp.oleane.net lucid-backports/restricted Packages
 Atteint http://ftp.oleane.net lucid-backports/main Packages
 Atteint http://ftp.oleane.net lucid-backports/multiverse Packages
 Atteint http://ftp.oleane.net lucid-backports/universe Packages
-1 472ko réceptionnés en 6s (223ko/s)
+Atteint http://ppa.launchpad.net lucid/main Packages
+Atteint http://ppa.launchpad.net lucid/main Packages
+Atteint http://ppa.launchpad.net lucid/main Packages
+Atteint http://ppa.launchpad.net lucid/main Packages
+Atteint http://deb.opera.com stable Release
+Atteint http://ppa.launchpad.net lucid/main Packages
+Atteint http://ppa.launchpad.net lucid/main Packages
+Ign http://deb.opera.com stable/non-free Packages
+Ign http://deb.opera.com stable/non-free Packages
+Atteint http://deb.opera.com stable/non-free Packages
+2 309o réceptionnés en 1s (1 901o/s)
 Lecture des listes de paquets...
 Lecture des listes de paquets...
 Construction de l'arbre des dépendances...

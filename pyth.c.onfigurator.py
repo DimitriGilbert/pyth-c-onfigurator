@@ -52,7 +52,7 @@ class soft_installer():
 		return self.executed[len(self.executed)-1]
 		
 	def raw_entry(self):
-		self.entry.append(raw_input())
+		self.entry.append(raw_input('#'))
 		entry=self.entry[len(self.entry)-1]		
 		self.log('commande manuelle : '+entry+'\n')
 		entry=self.parse_entry(entry)
@@ -69,6 +69,7 @@ class soft_installer():
 		xml_str='<softs><soft name=""><'+tag
 		for arg in s:
 			xml_str+=' '+arg
+			
 		if(tag=='verbose'):
 			if(len(s)==0):
 				print self.verbose
@@ -76,18 +77,30 @@ class soft_installer():
 				self.verbose=True
 			else:
 				self.verbose=False
+				
 		elif(tag=='msg'):
 			m=raw_input('Votre message :\n')
 			n=''
+				
+		elif(tag=='file'):
+			m=raw_input('contenu de votre fichier :\n')
+			n=''
+				
+		elif(tag=='download'):
+			m=raw_input('lien de téléchargement :\n')
+			n=''
+			
 		elif(tag=='cmd'):
 			m=raw_input('Votre commande :\n')
 			n=''
+			
 		elif(tag=='apt'):
 			m=raw_input('logiciel a installer (vide si terminé) :\n')
 			n=''
 			while(m!=''):
 				n+='<apt_soft name="'+str(m)+'"/>'
 				m=raw_input('logiciel a installer (vide si terminé) :\n')
+				
 		elif(tag=='replace'):
 			m=raw_input('chaine a cherché (vide si terminé) :\n')
 			n=''
@@ -97,12 +110,15 @@ class soft_installer():
 				n+='new="'+base64.b64encode(str(m))+'"/>'
 				m=raw_input('chaine a cherché (vide si terminé) :\n')
 			m=''
+			
 		elif(tag=='load'):
 			self.load(s[0])
 			return False
+			
 		elif(tag=='run'):
 			self.run()
 			return False
+			
 		else:
 			m=''
 			n=''
