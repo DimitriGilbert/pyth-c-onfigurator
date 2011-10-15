@@ -26,7 +26,9 @@ report to soft.xml file
 
 /!\ be careful, some strings are base64 encoded !! /!\
 
+BUILDING XML SCRIPT
+
 to build an xml file, you can use the provided kitchen (written in javascript an html), 
-it's still under developpement (and in french....^^) but it should provide usable result.
+(it's still in french....^^) or create it by hand.
 
 Enjoy !!

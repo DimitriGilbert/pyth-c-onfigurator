@@ -27,9 +27,18 @@ se reporter au fichier soft.xml
 
 /!\ certaine chaine de caractere sont encodée en base64 /!\
 
-Construction d'un XML :
-entrez les noeud les uns à la suite des autres, sans indentation
-les actions seront effectuée dans le sens du flux.
-un script de creation est disponible (kitchen) pour simplifier la création de script d'instalation, il est encore en cour de developpement mais devrais resortir des resultat utilisable des maintenant
+CONSTRUCTION D'UN XML :
+il existe 2 methodes :
+	utilisez la kitchen HTML :
+		cliquez sur le type de noeud a créer
+		remplissez les champs
+		passez au noeud suivant
+		une fois terminer cliquer sur 'creer le script'
+		votre script apparait dans un textarea, copier le et coller le dans votre fichier xml, sans oublier la declaration et le noeud "softs" pour encadre votre script generer.
+	
+	creer le XML a la main :
+		entrez les noeud les uns à la suite des autres, sans indentation
+		les actions seront effectuée dans le sens du flux.
+		un script de creation est disponible (kitchen) pour simplifier la création de script d'instalation, il est encore en cour de developpement mais devrais resortir des resultat utilisable des maintenant
 
 Enjoy !!
