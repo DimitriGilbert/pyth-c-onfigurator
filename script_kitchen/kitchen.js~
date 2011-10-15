@@ -189,23 +189,18 @@ var load_script=function()
 var Kitchen=function()
 {
 	//creation d'un nouvel objet xml
-	this.init_xml=function()
+	if (window.DOMParser)
 	{
-		if (window.DOMParser)
-		{
-			this.k_xml=new DOMParser().parseFromString(new_xml_str,"text/xml");
-		}
-		else
-		{
-			this.k_xml=new ActiveXObject("Microsoft.XMLDOM");
-			k_xml.async="false";
-			k_xml.loadXML(new_xml_str);
-		}
+		this.k_xml=new DOMParser().parseFromString(new_xml_str,"text/xml");
+	}
+	else
+	{
+		this.k_xml=new ActiveXObject("Microsoft.XMLDOM");
+		k_xml.async="false";
+		k_xml.loadXML(new_xml_str);
 	}
 	
-	
 	this.script_detail=docelid('new_script_detail');
-	this.init_xml();
 	
 	//methodes de creation des differents formulaire pour la creation de noeud
 	this.new_raw=function()
@@ -220,8 +215,8 @@ var Kitchen=function()
 		div.appendChild(jsi.input4form(id+'_ask',"Question du raw_input",[],[],''));
 		//error
 		div.appendChild(jsi.input4form(id+'_error',"Message d'erreur, laissez vide si inutile",[],[],''));
-		//expect
-		div.appendChild(jsi.input4form(id+'_expect',"expression reguliere pour verification, laissez vide si inutile",[],[],''));
+		//excpect
+		div.appendChild(jsi.input4form(id+'_excpect',"expression reguliere pour verification, laissez vide si inutile",[],[],''));
 		//default
 		div.appendChild(jsi.input4form(id+'_default',"Valeur par defaut du raw_input",[],[],''));
 		
@@ -341,7 +336,7 @@ var Kitchen=function()
 		//path
 		div.appendChild(jsi.input4form(id+'_path',"Chemin à supprimez",[],[],''));
 		//type
-		div.appendChild(jsi.input4form(id+'_type',"file ou dir",[],[],'file'));
+		div.appendChild(jsi.input4form(id+'_mode',"file ou dir",[],[],'file'));
 //		insertion du form dans la page
 		return t.script_detail.appendChild(div);
 	}
@@ -352,13 +347,13 @@ var Kitchen=function()
 		var div=jsi.div(['class','id'],['node cp','cp_'+id]);
 		div.appendChild(jsi.div(['class'],['node_title'],"CP"));
 		//from
-		div.appendChild(jsi.input4form(id+'_from',"Chemin à copier",[],[],''));
+		div.appendChild(jsi.input4form(id+'_from,"Chemin à copier",[],[],''));
 		//to
-		div.appendChild(jsi.input4form(id+'_to',"Chemin de destination",[],[],''));
+		div.appendChild(jsi.input4form(id+'_to,"Chemin de destination",[],[],''));
 		//type
-		div.appendChild(jsi.input4form(id+'_type',"file ou dir",[],[],'file'));
+		div.appendChild(jsi.input4form(id+'_type,"file ou dir",[],[],'file'));
 		//r
-		div.appendChild(jsi.input4form(id+'_r',"recursif (si dir seulement)",[],[],'1'));
+		div.appendChild(jsi.input4form(id+'_r,"recursif (si dir seulement)",[],[],'1'));
 //		insertion du form dans la page
 		return t.script_detail.appendChild(div);
 	}
@@ -492,7 +487,7 @@ var Kitchen=function()
 		raw.setAttribute('ask',docelid(id+'_ask').value);
 		raw.setAttribute('error',docelid(id+'_error').value);
 		raw.setAttribute('default',docelid(id+'_default').value);
-		raw.setAttribute('expect',docelid(id+'_expect').value);
+		raw.setAttribute('excpect',docelid(id+'_excpect').value);
 		raw.setAttribute('value',"");
 		
 		return raw;
@@ -543,7 +538,7 @@ var Kitchen=function()
 	{
 		var t=this;
 		var id=t.get_block_id(div.id);
-		var a=t.k_xml.createElement('apt_raw');
+		var a=t.k_xml.createElement('apt');
 		var x=0;
 		var nb=docelid(id+'_nb_soft').value;
 		
@@ -557,8 +552,6 @@ var Kitchen=function()
 			a.setAttribute('out','0');
 		}
 		a.setAttribute('default','y');
-		a.setAttribute('yes',docelid(id+'_yes').value);
-		a.setAttribute('no',docelid(id+'_no').value);
 		
 		var as='';
 		while(x<nb)
@@ -694,12 +687,12 @@ var Kitchen=function()
 	this.create_xml=function()
 	{
 		var t=this;
-		t.init_xml();
 		var xml=t.k_xml.documentElement;
 		var nodes=t.script_detail.childNodes;
 		var x=0;
 		var y=nodes.length;
-		while(nodes.item(x))
+		
+		while(x<y)
 		{
 			switch(nodes[x].classList[1])
 			{		
@@ -742,7 +735,7 @@ var Kitchen=function()
 			}
 			x++;
 		}
-		docelid('xml_out_area').value=xml2str(xml);
+		docelid('xml_out_area').value=xml2str(t.k_xml);
 		docelid('content_new_script').style.display='none';
 		docelid('content_load_script').style.display='none';
 		docelid('content_out').style.display='block';		
@@ -776,7 +769,6 @@ var Kitchen=function()
 					docelid(id+'_id').value=nodes[x].getAttribute('id');
 					docelid(id+'_default').value=nodes[x].getAttribute('default');
 					docelid(id+'_expect').value=nodes[x].getAttribute('expect');
-					docelid(id+'_error').value=nodes[x].getAttribute('error');
 					docelid(id+'_ask').value=nodes[x].getAttribute('ask');
 					break;
 				case 'download':
@@ -790,51 +782,23 @@ var Kitchen=function()
 					id=t.get_block_id(n.id);
 					var a_softs=nodes[x].childNodes;
 					docelid(id+'_out').value=nodes[x].getAttribute('out');
-					var z=a_softs.length;
+					var z=a_soft.length;
 					var mz=0;
-					docelid(id+'_nb_soft').value=z;
+					docelid(id+'_nb').value=z;
 					t.add_apt_soft(z,id);
 					while(mz<z)
 					{
-						docelid(id+'_apt_soft_'+mz).value=a_softs[mz].getAttribute('name');
+						docelid(id+'_apt_soft_'+mz).value=a_soft[mz].getAttribute('name');
 						mz++;
 					}
 					break;
 				case 'apt_raw':
 					n=t.new_apt_raw();
 					id=t.get_block_id(n.id);
-					var a_softs=nodes[x].childNodes;
-					docelid(id+'_out').value=nodes[x].getAttribute('out');
-					docelid(id+'_no').value=nodes[x].getAttribute('no');
-					docelid(id+'_yes').value=nodes[x].getAttribute('yes');
-//					docelid(id+'_default').value=nodes[x].getAttribute('default');
-					var z=a_softs.length;
-					var mz=0;
-					docelid(id+'_nb_soft').value=z;
-					t.add_apt_raw_soft(z,id);
-					while(mz<z)
-					{
-						docelid(id+'_apt_raw_soft_nom_'+mz).value=a_softs[mz].getAttribute('name');
-						docelid(id+'_apt_raw_soft_ask_'+mz).value=a_softs[mz].getAttribute('ask');
-						docelid(id+'_apt_raw_soft_id_'+mz).value=a_softs[mz].getAttribute('id');
-						mz++;
-					}
 					break;
 				case 'replace':
 					n=t.new_replace();
 					id=t.get_block_id(n.id);
-					docelid(id+'_path').value=nodes[x].getAttribute('path');
-					var rep=nodes[x].childNodes;
-					var mz=0;
-					var z=rep.length;
-					docelid(id+'_nb_replace').value=z;
-					t.add_replace_r(z,id);
-					while(mz<z)
-					{
-						docelid(id+'_replace_r_old_'+mz).value=Base64.decode(rep[mz].getAttribute('old'));
-						docelid(id+'_replace_r_new_'+mz).value=Base64.decode(rep[mz].getAttribute('new'));
-						mz++;
-					}
 					break;
 				case 'dir':
 					n=t.new_dir();
@@ -850,7 +814,7 @@ var Kitchen=function()
 				case 'cmd':
 					n=t.new_cmd();
 					id=t.get_block_id(n.id);
-					docelid(id+'_cmd').value=Base64.decode(nodes[x].textContent);					
+					docelid(id+'_content').value=Base64.decode(nodes[x].textContent);					
 					docelid(id+'_out').value=nodes[x].getAttribute('out');
 					break;
 				case 'rm':
@@ -872,13 +836,13 @@ var Kitchen=function()
 					docelid(id+'_content').value=Base64.decode(nodes[x].textContent);
 					break;
 				case 'soft':
-//					n=t.new_soft();
-//					id=t.get_block_id(n.id);
+					n=t.new_soft();
+					id=t.get_block_id(n.id);
 					break;
 			}
 			x++;
 		}
-		new_script();
+		
 	}
 }
 
