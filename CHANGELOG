@@ -18,4 +18,7 @@ CHANGELOG :
 		create a new script
 		load a script
 			one soft at the time, and just the soft node (no <softs> node will work on that later)
-		
+
+0.5.1 :
+	bug fix in kitchen
+		create_file was creating dir node in XML output

@@ -609,7 +609,7 @@ var Kitchen=function()
 		var t=this;
 		var id=t.get_block_id(div.id);
 		
-		var f=t.k_xml.createElement('dir');
+		var f=t.k_xml.createElement('file');
 		f.setAttribute('path',docelid(id+'_path').value);
 		f.setAttribute('mode',docelid(id+'_mode').value);
 		c=docelid(id+'_content').value;
